@@ -18,3 +18,10 @@ int[] array = [0,1,2,3];
 for(int i in array) { 
          println(i); 
 }
+
+// for in maps
+
+def employee = ["Ken" : 21, "John" : 25, "Sally" : 22];        
+for(emp in employee) {
+         println(emp);
+}
