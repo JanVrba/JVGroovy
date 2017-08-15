@@ -65,3 +65,26 @@ class Example {
       println(getX());     
    }  
 }
+
+// method with this keyword
+
+class Example { 
+   int x = 100; 
+    
+   public int getX() { 
+      this.x = 200; 
+      return x; 
+   } 
+   
+     public int getX1() {        
+      return x; 
+   } 
+    
+    
+   static void main(String[] args) {
+      Example ex = new Example(); 
+      println(ex.getX());
+      Example ex1 = new Example(); 
+      println(ex1.getX1());     
+   }
+}
