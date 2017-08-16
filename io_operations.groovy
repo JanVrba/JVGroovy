@@ -43,3 +43,15 @@ def file = new File("C:\\Temp\\file.txt") ;
 println("Deleting ${file.absolutePath} ...");
 file.delete();
 println("${file.absolutePath} deleted!");
+
+// copy content from one file to another
+
+def src = new File("C:/Temp/file.txt")
+def dst = new File("C:/Temp/NewDir/file.txt")
+dst << src.text
+
+// list of files at directory
+
+new File("C:/Temp").eachFile() {  
+    file->println file.getAbsolutePath()
+}
