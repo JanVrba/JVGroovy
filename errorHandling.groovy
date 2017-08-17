@@ -38,8 +38,6 @@ println("Continue...");
 
 // error methods
 
-//File file = new File("E://file.txt");
-//FileReader fr = new FileReader(file);
 try {
     def arr = new int[3];
     arr[2] = "hkhkh";
