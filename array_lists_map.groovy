@@ -31,3 +31,4 @@ map+=['key1' : 'value1']
 map+=['key2' : 'value2']
 map.put('key3','value3')
 map.each {println it}
+map.each {println "${it.key} maps to: ${it.value}"}
