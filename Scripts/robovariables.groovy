@@ -11,27 +11,23 @@ total = fail + pass
 products = []
 for (i=0;i < doc.suite.suite.size();i++) {
     products += doc.suite.suite[i].attributes().name
-}
-// attributes()
-for (i=0;i < doc.suite.suite.suite.suite.suite[3].suite.size();i++) {   
     
-    for (j=0; j < doc.suite.suite.suite.suite.suite[3].suite[i].test.size();j++) {
-        println(doc.suite.suite.suite.suite.suite[3].suite[i].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[i].test[j].attributes().name)
+}
+tests = []
+for (i=0;i< products.size();i++) {   
+    
+    if (doc.suite.suite.suite.suite.suite[i].suite.size() > 0) {
+    
+        for (j=0;j < doc.suite.suite.suite.suite.suite[i].suite.size();j++){
+           
+            for (k=0;k < doc.suite.suite.suite.suite.suite[i].suite[j].test.size();k++) {              
+                 
+                tests += "Product: " + products[i] + "; Test suite name: " + doc.suite.suite.suite.suite.suite[i].suite[j].attributes().name + "; Test name: " + doc.suite.suite.suite.suite.suite[i].suite[j].test[k].attributes().name + " -> Status: " + doc.suite.suite.suite.suite.suite[i].suite[j].test[k].status[0].attributes().status
+            }
+         
+        }
     }
 }
-
-println(doc.suite.suite.suite.suite.suite[3].suite[0].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[0].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[0].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[0].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[1].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[1].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[0].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[2].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[0].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[3].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[3].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[0].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[4].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[0].test[4].status[0].attributes().status)
-
-println(doc.suite.suite.suite.suite.suite[3].suite[1].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[1].test[0].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[1].test[0].status[0].attributes().status)
-
-println(doc.suite.suite.suite.suite.suite[3].suite[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[0].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[0].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[1].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[1].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[2].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[3].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[3].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[4].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[4].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[5].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[5].status[0].attributes().status)
-println(doc.suite.suite.suite.suite.suite[3].suite[2].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[6].attributes().name + " - " + doc.suite.suite.suite.suite.suite[3].suite[2].test[6].status[0].attributes().status)
+tests.each {
+    println(it)
+}
