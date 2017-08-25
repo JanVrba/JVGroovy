@@ -29,6 +29,8 @@ for (i=0;i< products.size();i++) {
     }
 }
 
-tests.each {
-    println(it)
-}
+def file = new File("c:\\temp\\robovar.txt")
+file.write "tests=" + tests
+file.append "\n" + "fail=" + fail
+file.append "\n" + "pass=" + pass
+file.append "\n" + "total=" + total
